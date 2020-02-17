@@ -23,4 +23,9 @@ These Terraform scripts are based in the `0.2.1-chilcano` branch of [forked GitH
 
 ## ToDo
 
-...
+**References:**
+
+- aws-terraform-kubeAdm
+  * [https://github.com/graykode/aws-kubeadm-terraform](https://github.com/graykode/aws-kubeadm-terraform)
+- terraform-provider-kubeadm
+  * [https://github.com/inercia/terraform-provider-kubeadm](https://github.com/inercia/terraform-provider-kubeadm)
