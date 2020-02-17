@@ -3,11 +3,21 @@ The Kubernetes Cluster will be built on top of cheaper resources or something li
 
 These Terraform scripts are based in the `0.2.1-chilcano` branch of [forked GitHub repo](https://github.com/chilcano/kubeadm-aws). 
 
-## Using
+## Creating Kubernetes Cluster
+
+### AWS samples
+
+![affordablek8s-aws-01-arch-ingress-dns-tls-cert-manager](20200129-affordablek8s-aws-01-arch-ingress-dns-tls-cert-manager.png)
+
+**1) Simple K8s Cluster (1 Master, 1 Worker)**
 
 ...
 
-## Samples
+**2) K8s Cluster (1 Master, 1 Worker) with Ingress and Router 53 custom DNS**
+
+....
+
+### Google samples
 
 ...
 
