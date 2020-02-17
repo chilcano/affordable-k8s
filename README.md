@@ -29,3 +29,9 @@ These Terraform scripts are based in the `0.2.1-chilcano` branch of [forked GitH
   * [https://github.com/graykode/aws-kubeadm-terraform](https://github.com/graykode/aws-kubeadm-terraform)
 - terraform-provider-kubeadm
   * [https://github.com/inercia/terraform-provider-kubeadm](https://github.com/inercia/terraform-provider-kubeadm)
+- Kubernetes Cluster Provisioner (Terraform + Ansible + AWS + Kubespray)
+  * [https://github.com/alicek106/aws-terraform-kubernetes](https://github.com/alicek106/aws-terraform-kubernetes)
+- Build Your Own K8S or with Installers like kops, kubeadm, and, kubicorn
+  * [https://www.weave.works/technologies/kubernetes-installation-options/](https://www.weave.works/technologies/kubernetes-installation-options/)
+- Kubernetes clusters for the hobbyist
+  * [https://github.com/hobby-kube/guide](https://github.com/hobby-kube/guide)
