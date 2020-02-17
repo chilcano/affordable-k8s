@@ -1,0 +1,56 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hello
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hello-sa
+  namespace: hello
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-v1
+  namespace: hello
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello
+        version: v1
+    spec:
+      serviceAccountName: hello-sa
+      containers:
+      - name: helloworld
+        image: istio/examples-helloworld-v1
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: http
+            containerPort: 5000
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-v2
+  namespace: hello
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello
+        version: v2
+    spec:
+      serviceAccountName: hello-sa
+      containers:
+      - name: helloworld
+        image: istio/examples-helloworld-v2
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: http
+            containerPort: 5000
+---

@@ -1,0 +1,47 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-ingress-cip
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    #certmanager.k8s.io/issuer: "letsencrypt-prod"
+    #certmanager.k8s.io/acme-challenge-type: http01
+  namespace: hello
+spec:
+  #tls:
+  #- hosts:
+  #  - ingress-nginx.cloud.holisticsecurity.io
+  #  secretName: ingress-nginx-cloud-holisticsecurity-io-https
+  rules:
+  - host: ingress-nginx.cloud.holisticsecurity.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hello-svc-cip
+          servicePort: 5080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-ingress-np
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    #certmanager.k8s.io/issuer: "letsencrypt-prod"
+    #certmanager.k8s.io/acme-challenge-type: http01
+  namespace: hello
+spec:
+  #tls:
+  #- hosts:
+  #  - ingress-nginx.cloud.holisticsecurity.io
+  #  secretName: ingress-nginx-cloud-holisticsecurity-io-https
+  rules:
+  - host: hello-svc-np.cloud.holisticsecurity.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hello-svc-np
+          servicePort: 5080
+---
