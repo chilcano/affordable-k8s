@@ -43,7 +43,7 @@ systemctl enable docker
 # Work around the fact spot requests can't tag their instances
 REGION=$(ec2metadata --availability-zone | rev | cut -c 2- | rev)
 INSTANCE_ID=$(ec2metadata --instance-id)
-aws --region $REGION ec2 create-tags --resources $INSTANCE_ID --tags "Key=Name,Value=${clustername}-master" "Key=Environment,Value=${clustername}" "Key=kubernetes.io/cluster/${clustername},Value=owned"
+aws --region $REGION ec2 create-tags --resources $INSTANCE_ID --tags "Key=Name,Value=${clustername}_master" "Key=Environment,Value=${clustername}" "Key=kubernetes.io/cluster/${clustername},Value=owned"
 
 # Point kubelet at big ephemeral drive
 mkdir /mnt/kubelet
