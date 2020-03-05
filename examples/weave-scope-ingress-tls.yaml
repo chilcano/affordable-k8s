@@ -18,7 +18,8 @@ spec:
       paths:
         - path: /
           backend:
-            serviceName: weave-scope-app  # Weave Scope ClusterIP service created by default during the installation
+            #serviceName: weave-scope-app  # Weave Scope ClusterIP service created by default during the installation
+            serviceName: weave-scope-app-svc  # Weave Scope NodePort service created 
             servicePort: 80
   tls:
   - hosts:
