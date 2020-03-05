@@ -1,0 +1,11 @@
+apiVersion: cert-manager.k8s.io/v1alpha2
+kind: Issuer
+metadata:
+  name: letsencrypt-prod-cluster-issuer-tmp
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: chilcano@intix.info
+    privateKeySecretRef:  
+      name: letsencrypt-prod-cluster-issuer-tmp-privkey
+    http01: {}

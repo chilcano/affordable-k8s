@@ -1,11 +1,11 @@
-apiVersion: certmanager.k8s.io/v1alpha1
-kind: Issuer
+apiVersion: cert-manager.k8s.io/v1alpha2
+kind: ClusterIssuer
 metadata:
-  name: letsencrypt-prod
+  name: letsencrypt-prod-cluster-issuer
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory  # The ACME server URL
     email: ${cert_manager_email}  # Email address used for ACME registration
     privateKeySecretRef:  
-      name: letsencrypt-prod  # Name of a secret used to store the ACME account private key
+      name: letsencrypt-prod-cluster-issuer-privkey  # Name of a secret used to store the ACME account private key
     http01: {}  # Enable the HTTP-01 challenge provider

@@ -124,7 +124,8 @@ if [ -f /tmp/fresh-cluster ]; then
   # Install cert-manager
   if [[ "${certmanagerenabled}" == "1" ]]; then
     sleep 60 # Give Tiller a minute to start up
-    su -c 'helm install --name cert-manager --namespace cert-manager --version 0.5.2 stable/cert-manager --set createCustomResource=false && helm upgrade --install --namespace cert-manager --version 0.5.2 cert-manager stable/cert-manager --set createCustomResource=true' ubuntu
+    su -c 'helm install --name cert-manager --namespace cert-manager --version 0.5.2 stable/cert-manager --set createCustomResource=false' ubuntu
+    su -c 'helm upgrade --install --namespace cert-manager --version 0.5.2 cert-manager stable/cert-manager --set createCustomResource=true' ubuntu
   fi
 
   # Install all the YAML we've put on S3
