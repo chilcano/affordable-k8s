@@ -21,7 +21,7 @@ spec:
             #serviceName: weave-scope-app  # Weave Scope ClusterIP service created by default during the installation
             #servicePort: 80
             serviceName: weave-scope-app-svc  # Weave Scope NodePort service created 
-            servicePort: 3002
+            servicePort: 30002
 
   tls:
   - hosts:
