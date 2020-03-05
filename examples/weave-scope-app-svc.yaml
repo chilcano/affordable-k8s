@@ -9,7 +9,6 @@ metadata:
     weave-scope-component: app
   annotations:
     external-dns.alpha.kubernetes.io/hostname: weave-scope.cloud.holisticsecurity.io  # External-DNS will create this fqdn in AWS Route 53 
-  namespace: weave
 spec:
   type: NodePort
   ports:

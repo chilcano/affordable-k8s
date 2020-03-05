@@ -10,7 +10,6 @@ metadata:
     certmanager.k8s.io/acme-challenge-type: http01
     ingress.kubernetes.io/auth-type: basic  # (4) Enabling http-basic auth
     ingress.kubernetes.io/auth-secret: weave-scope-secret-basic-auth  # (5) NGINX will read this secret for http-basic auth
-  namespace: weave
 spec:
   rules:
   - host: weave-scope.cloud.holisticsecurity.io
