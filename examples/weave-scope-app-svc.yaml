@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: weave-scope-app-svc
+  labels:
+    app: weave-scope
+    name: weave-scope-app
+    weave-cloud-component: scope
+    weave-scope-component: app
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: weave-scope.cloud.holisticsecurity.io  # External-DNS will create this fqdn in AWS Route 53 
+  namespace: weave
+spec:
+  type: NodePort
+  ports:
+  - name: app
+    port: 80
+    protocol: TCP
+    targetPort: 4040
+    nodePort: 30002  ## forces to assign this port
+  selector:
+    app: weave-scope
+    name: weave-scope-app
+    weave-cloud-component: scope
+    weave-scope-component: app
