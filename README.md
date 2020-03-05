@@ -3,9 +3,26 @@ The Kubernetes Cluster will be built on top of cheaper resources or something li
 
 These Terraform scripts are based in the `0.2.1-chilcano` branch of [forked GitHub repo](https://github.com/chilcano/kubeadm-aws). 
 
-## Creating Kubernetes Cluster
+## Design of Kubernetes Cluster
 
 ![affordablek8s-aws-01-arch-ingress-dns-tls-cert-manager](/docs/20200129-affordablek8s-aws-01-arch-ingress-dns-tls-cert-manager.png)
+
+### Kubernetes versions tested
+
+K8s version | Worked? | Observations
+---         | ---     | ---
+[1.13.12](https://github.com/kubernetes/kubernetes/releases/tag/v1.13.12)  | Yes     | N/A
+[1.14.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.3)    | Yes     | N/A
+[1.14.10](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.10)  | ???     | ???
+[1.15.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.3)    | ???     | ???
+[1.15.10](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.10)  | ???     | ???
+[1.16.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.16.3)    | ???     | ???
+[1.16.7](https://github.com/kubernetes/kubernetes/releases/tag/v1.16.7)    | ???     | ???
+[1.17.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.17.3)    | ???     | ???
+
+
+## Samples
+
 
 **1) Simple K8s Cluster (1 Master, 1 Worker)**
 
@@ -19,7 +36,7 @@ $ terraform init
 $ terraform plan \
   -var cluster_name="cheapk8s" \
   -var k8s_ssh_key="ssh-key-for-us-east-1" \
-  -var admin_cidr_blocks="90.208.240.241/32" \
+  -var admin_cidr_blocks="83.45.101.2/32" \
   -var region="us-east-1" \
   -var kubernetes_version="1.14.3" \
   -var external_dns_enabled="1" \
@@ -31,7 +48,7 @@ $ terraform plan \
 $ terraform apply \
   -var cluster_name="cheapk8s" \
   -var k8s_ssh_key="ssh-key-for-us-east-1" \
-  -var admin_cidr_blocks="90.208.240.241/32" \
+  -var admin_cidr_blocks="83.45.101.2/32" \
   -var region="us-east-1" \
   -var kubernetes_version="1.14.3" \
   -var external_dns_enabled="1" \
@@ -46,7 +63,7 @@ $ ssh ubuntu@$(terraform output master_dns) -i ~/Downloads/ssh-key-for-us-east-1
 $ terraform destroy \
   -var cluster_name="cheapk8s" \
   -var k8s_ssh_key="ssh-key-for-us-east-1" \
-  -var admin_cidr_blocks="90.208.240.241/32" \
+  -var admin_cidr_blocks="83.45.101.2/32" \
   -var region="us-east-1" \
   -var kubernetes_version="1.14.3" \
   -var external_dns_enabled="1" \

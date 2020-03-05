@@ -272,7 +272,7 @@ spec:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
     spec:
-      hostNetwork: true
+      hostNetwork: true   ### this a privileged operation
       dnsPolicy: ClusterFirstWithHostNet
       serviceAccountName: nginx-ingress-serviceaccount
       containers:
