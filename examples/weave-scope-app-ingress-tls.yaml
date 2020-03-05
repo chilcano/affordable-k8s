@@ -22,7 +22,6 @@ spec:
             #servicePort: 80
             serviceName: weave-scope-app-svc  # Weave Scope NodePort service created 
             servicePort: 30002
-
   tls:
   - hosts:
     - weave-scope.cloud.holisticsecurity.io  # (1) This host (fqdn) is going to get a tls cert
