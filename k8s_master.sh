@@ -113,6 +113,9 @@ tar xvf helm-v2.12.0-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/
 rm -rf linux-amd64 helm-*
 
+# Function to compare versions (i.e. 1.2.3.4)
+function getversion { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+
 if [ -f /tmp/fresh-cluster ]; then
   su -c 'kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/13a990bb716c82a118b8e825b78189dcfbfb2f1e/Documentation/kube-flannel.yml' ubuntu
 
@@ -124,8 +127,12 @@ if [ -f /tmp/fresh-cluster ]; then
   # Install cert-manager
   if [[ "${certmanagerenabled}" == "1" ]]; then
     sleep 60 # Give Tiller a minute to start up
-    su -c 'helm install --name cert-manager --namespace cert-manager --version 0.5.2 stable/cert-manager --set createCustomResource=false' ubuntu
-    su -c 'helm upgrade --install --namespace cert-manager --version 0.5.2 cert-manager stable/cert-manager --set createCustomResource=true' ubuntu
+    su -c 'kubectl create namespace cert-manager' ubuntu
+    if [ $(getversion ${k8sversion}) -le $(getversion "1.15.4") ]; then
+      su -c 'kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.13.1/cert-manager.yaml' ubuntu
+    else
+      su -c 'kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.13.1/cert-manager.yaml' ubuntu
+    fi
   fi
 
   # Install all the YAML we've put on S3
