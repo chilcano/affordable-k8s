@@ -1,12 +1,11 @@
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: weave-scope-app-ingress-tls
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    #kubernetes.io/tls-acme: "true"
-    certmanager.k8s.io/issuer: "letsencrypt-prod" # (2) Selecting the issuer CA
-    #cert-manager.io/cluster-issuer: "letsencrypt-prod" # (2) Selecting the issuer CA
+    certmanager.k8s.io/issuer: "letsencrypt-prod-issuer-tmp" # (2) Selecting the issuer CA
     certmanager.k8s.io/acme-challenge-type: http01
     ingress.kubernetes.io/auth-type: basic  # (4) Enabling http-basic auth
     ingress.kubernetes.io/auth-secret: weave-scope-secret-basic-auth  # (5) NGINX will read this secret for http-basic auth
@@ -17,11 +16,10 @@ spec:
       paths:
         - path: /
           backend:
-            #serviceName: weave-scope-app  # Weave Scope ClusterIP service created by default during the installation
-            #servicePort: 80
             serviceName: weave-scope-app-svc  # Weave Scope NodePort service created 
             servicePort: 30002
   tls:
   - hosts:
     - weave-scope.cloud.holisticsecurity.io  # (1) This host (fqdn) is going to get a tls cert
-    secretName: weave-scope-secret-tls-cert # (3) Cert-Manager will store the created tls cert in this k8s secret
+    secretName: weave-scope-app-secret-tls # (3) Cert-Manager will store the created tls cert in this k8s secret
+---
