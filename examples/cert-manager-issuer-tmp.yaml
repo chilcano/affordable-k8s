@@ -1,5 +1,5 @@
-#apiVersion: cert-manager.k8s.io/v1alpha2
-apiVersion: certmanager.k8s.io/v1alpha1
+---
+apiVersion: cert-manager.io/v1alpha2
 kind: Issuer
 metadata:
   name: letsencrypt-prod-issuer-tmp
@@ -9,4 +9,8 @@ spec:
     email: chilcano@intix.info
     privateKeySecretRef:  
       name: letsencrypt-prod-issuer-tmp-privkey
-    http01: {}
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+---

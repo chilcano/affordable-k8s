@@ -4,8 +4,11 @@ metadata:
   name: letsencrypt-prod-cluster-issuer
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory  # The ACME server URL
-    email: ${cert_manager_email}  # Email address used for ACME registration
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: ${cert_manager_email}
     privateKeySecretRef:  
-      name: letsencrypt-prod-cluster-issuer-privkey  # Name of a secret used to store the ACME account private key
-    http01: {}  # Enable the HTTP-01 challenge provider
+      name: letsencrypt-prod-cluster-issuer-privkey
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
