@@ -5,8 +5,9 @@ metadata:
   name: weave-scope-app-ingress-tls
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    certmanager.k8s.io/issuer: "letsencrypt-prod-issuer-tmp" # (2) Selecting the issuer CA
-    certmanager.k8s.io/acme-challenge-type: http01
+    cert-manager.io/issuer: "letsencrypt-prod-issuer-tmp" # (2) Selecting the issuer CA
+    ##cert-manager.io/acme-challenge-type: http01
+    #kubernetes.io/tls-acme: "true" #acme cert being requested
     ingress.kubernetes.io/auth-type: basic  # (4) Enabling http-basic auth
     ingress.kubernetes.io/auth-secret: weave-scope-secret-basic-auth  # (5) NGINX will read this secret for http-basic auth
 spec:
