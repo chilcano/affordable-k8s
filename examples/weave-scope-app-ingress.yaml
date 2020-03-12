@@ -22,5 +22,5 @@ spec:
   tls:
   - hosts:
     - weave-scope.cloud.holisticsecurity.io
-    secretName: weave-scope-app-secret-tls
+    secretName: secret-tls-svc-np
 ---

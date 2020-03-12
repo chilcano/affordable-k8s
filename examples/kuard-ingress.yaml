@@ -21,7 +21,7 @@ spec:
   tls:
   - hosts:
     - ingress-nginx.cloud.holisticsecurity.io
-    secretName: kuard-secret-tls 
+    secretName: secret-tls 
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -45,5 +45,5 @@ spec:
   tls:
   - hosts:
     - kuard.cloud.holisticsecurity.io
-    secretName: kuard-secret-tls-svc-np 
+    secretName: secret-tls-svc-np 
 ---
