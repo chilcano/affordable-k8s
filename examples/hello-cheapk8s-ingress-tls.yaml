@@ -5,9 +5,8 @@ metadata:
   name: hello-ingress-cip-tls
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    certmanager.k8s.io/issuer: "letsencrypt-prod"
-    certmanager.k8s.io/acme-challenge-type: http01
-  namespace: hello
+    cert-manager.io/issuer: "letsencrypt-prod"
+    cert-manager.io/acme-challenge-type: http01
 spec:
   tls:
   - hosts:
@@ -28,14 +27,13 @@ metadata:
   name: hello-ingress-np-tls
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    certmanager.k8s.io/issuer: "letsencrypt-prod"
-    certmanager.k8s.io/acme-challenge-type: http01
-  namespace: hello
+    cert-manager.io/issuer: "letsencrypt-prod"
+    cert-manager.io/acme-challenge-type: http01
 spec:
   tls:
   - hosts:
-    - ingress-nginx.cloud.holisticsecurity.io
-    secretName: ingress-nginx-cloud-holisticsecurity-io-https
+    - hello-svc-np.cloud.holisticsecurity.io
+    secretName: hello-svc-np-cloud-holisticsecurity-io-https
   rules:
   - host: hello-svc-np.cloud.holisticsecurity.io
     http:

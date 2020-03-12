@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: weave-scope-app-svc
+  name: weave-scope-app-svc-np
   labels:
     app: weave-scope
     name: weave-scope-app
@@ -17,7 +17,7 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 4040
-    nodePort: 30002  ## Force the assignment of this port
+    nodePort: 30002  ## Required to create a SSH tunnel
   selector:
     app: weave-scope
     name: weave-scope-app
