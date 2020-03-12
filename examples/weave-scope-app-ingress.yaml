@@ -8,7 +8,7 @@ metadata:
     cert-manager.io/issuer: "letsencrypt-issuer-test"
     #cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer-test"
     nginx.ingress.kubernetes.io/auth-type: basic
-    nginx.ingress.kubernetes.io/auth-secret: weave-scope-app-http-basic-auth
+    nginx.ingress.kubernetes.io/auth-secret: secret-http-basic-auth
   namespace: weave
 spec:
   rules:
