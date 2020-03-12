@@ -1,4 +1,3 @@
-#apiVersion: certmanager.k8s.io/v1alpha1
 apiVersion: cert-manager.io/v1alpha2
 kind: Issuer
 metadata:
@@ -9,7 +8,6 @@ spec:
     email: ${cert_manager_email}  # Email address used for ACME registration
     privateKeySecretRef:  
       name: letsencrypt-prod  # Name of a secret used to store the ACME account private key
-#    http01: {}  # Enable the HTTP-01 challenge provider
     solvers:  # Enable the HTTP-01 challenge provider
     - http01:
         ingress:

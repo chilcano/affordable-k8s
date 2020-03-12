@@ -1,0 +1,16 @@
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: letsencrypt-issuer-test
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: letsencrypt-issuer-test@intix.info
+    privateKeySecretRef:  
+      name: letsencrypt-issuer-test-privkey
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+---
