@@ -40,7 +40,7 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: kuard
+          serviceName: kuard-svc-np
           servicePort: 80
   tls:
   - hosts:

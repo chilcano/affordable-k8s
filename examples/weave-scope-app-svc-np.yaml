@@ -9,15 +9,16 @@ metadata:
     weave-cloud-component: scope
     weave-scope-component: app
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: weave-scope.cloud.holisticsecurity.io  # External-DNS will create this fqdn in AWS Route 53 
+    external-dns.alpha.kubernetes.io/hostname: weave-scope.cloud.holisticsecurity.io
+  namespace: weave
 spec:
   type: NodePort
   ports:
   - name: app
-    port: 80
+    port: 80         ## Port required to route traffic from NGINX Ingress
     protocol: TCP
     targetPort: 4040
-    nodePort: 30002  ## Required to create a SSH tunnel
+    nodePort: 30002  ## Port required to create a SSH tunnel
   selector:
     app: weave-scope
     name: weave-scope-app
