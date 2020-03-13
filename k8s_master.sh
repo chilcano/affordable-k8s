@@ -138,7 +138,14 @@ if [ -f /tmp/fresh-cluster ]; then
   # Install all the YAML we've put on S3
   mkdir /tmp/manifests
   aws s3 sync s3://${s3bucket}/manifests/ /tmp/manifests
-  su -c 'kubectl apply -f /tmp/manifests/' ubuntu
+  
+  YAMLFILES=/tmp/manifests/*.yaml
+  for yf in $YAMLFILES; do
+    if [ $yf == "cert-manager-issuer.yaml" ]; then
+      sleep 60 # Give Cert-Manager a minute to start up
+    fi
+    su -c 'kubectl apply -f /tmp/manifests/$yf' ubuntu
+  done
 fi
 
 # Set up backups if they have been enabled

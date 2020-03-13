@@ -54,6 +54,7 @@ spec:
     port: 80
     targetPort: 8080
     protocol: TCP
+    nodePort: 30001  ## Port required to create a SSH tunnel
   #- name: https
   #  port: 443
   #  targetPort: 443
