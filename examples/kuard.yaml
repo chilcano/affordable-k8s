@@ -33,7 +33,8 @@ metadata:
   namespace: kuard
 spec:
   ports:
-  - port: 80
+  - name: http
+    port: 80
     targetPort: 8080
     protocol: TCP
   selector:
@@ -49,10 +50,12 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 80
+  - name: http
+    port: 80
     targetPort: 8080
     protocol: TCP
-  #- port: 443
+  #- name: https
+  #  port: 443
   #  targetPort: 443
   #  protocol: TCP
   selector:

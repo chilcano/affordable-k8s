@@ -13,13 +13,22 @@ K8s version | Worked? | Observations
 ---         | ---     | ---
 [1.13.12](https://github.com/kubernetes/kubernetes/releases/tag/v1.13.12)  | Yes     | N/A
 [1.14.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.3)    | Yes     | N/A
-[1.14.10](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.10)  | ???     | ???
+[1.14.10](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.10)  | Yes     | N/A
 [1.15.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.3)    | ???     | ???
 [1.15.10](https://github.com/kubernetes/kubernetes/releases/tag/v1.15.10)  | ???     | ???
 [1.16.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.16.3)    | ???     | ???
 [1.16.7](https://github.com/kubernetes/kubernetes/releases/tag/v1.16.7)    | ???     | ???
 [1.17.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.17.3)    | ???     | ???
 
+### Components included
+
+
+Component                | Version | Observations
+---                      | ---     | ---
+[Helm](https://helm.sh)                                                 | 2.12.0  | The `k8s_master.sh` bash installs it downloading the [helm-v2.12.0-linux-amd64.tar.gz](https://storage.googleapis.com/kubernetes-helm/helm-v2.12.0-linux-amd64.tar.gz) and running its installation process.
+[NGINX Ingress Controller](https://github.com/kubernetes/ingress-nginx) | 0.20.0  | Terraform installs it through `nginx-ingress-mandatory.yaml` (quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.20.0)
+[Jetstack Cert-Manager](https://cert-manager.io)                        | 0.13.1  | The `k8s_master.sh` bash installs it running `kubectl apply cert-manager.yaml`.
+[External-DNS](https://github.com/kubernetes-sigs/external-dns)         | 0.5.8   | Terraform installs it through `external-dns.yaml` (registry.opensource.zalan.do/teapot/external-dns:v0.5.8)
 
 ## Samples
 
