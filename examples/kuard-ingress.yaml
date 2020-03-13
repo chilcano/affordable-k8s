@@ -17,7 +17,7 @@ spec:
       - path: /kuard  ## URL: <ingress>/kuard
         backend:
           serviceName: kuard
-          servicePort: 80
+          servicePort: 90
   tls:
   - hosts:
     - ingress-nginx.cloud.holisticsecurity.io
@@ -41,7 +41,7 @@ spec:
       - path: /
         backend:
           serviceName: kuard-svc-np
-          servicePort: 80
+          servicePort: 91
   tls:
   - hosts:
     - kuard.cloud.holisticsecurity.io

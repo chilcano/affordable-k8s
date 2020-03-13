@@ -34,7 +34,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 80
+    port: 90
     targetPort: 8080
     protocol: TCP
   selector:
@@ -51,7 +51,7 @@ spec:
   type: NodePort
   ports:
   - name: http
-    port: 80
+    port: 91
     targetPort: 8080
     protocol: TCP
     nodePort: 30001  ## Port required to create a SSH tunnel

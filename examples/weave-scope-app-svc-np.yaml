@@ -15,7 +15,7 @@ spec:
   type: NodePort
   ports:
   - name: app
-    port: 80         ## Port required to route traffic from NGINX Ingress
+    port: 82         ## Port used for NGINX Ingress resource
     protocol: TCP
     targetPort: 4040
     nodePort: 30002  ## Port required to create a SSH tunnel
