@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: kuard-ingress-single
+  name: kuard-ingress-staging
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/issuer: "letsencrypt-issuer-staging"
@@ -29,5 +29,5 @@ spec:
   - hosts:
     - ingress-nginx.cloud.holisticsecurity.io
     - kuard.cloud.holisticsecurity.io
-    secretName: secret-tls-single 
+    secretName: cert-tls-staging 
 ---
