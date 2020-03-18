@@ -16,10 +16,10 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: weave-scope-app-svc-np
-          servicePort: 82   ## Port (no NodePort)
+          serviceName: weave-scope-app-svc-np  ## NodePort
+          servicePort: 82  ## Port (no NodePort)
   tls:
   - hosts:
     - weave-scope.cloud.holisticsecurity.io
-    secretName: secret-tls-svc-np
+    secretName: cert-tls
 ---
