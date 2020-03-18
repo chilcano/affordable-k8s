@@ -32,6 +32,7 @@ metadata:
   name: kuard
   namespace: kuard
 spec:
+  type: ClusterIP
   ports:
   - name: http
     port: 90
