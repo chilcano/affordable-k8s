@@ -5,6 +5,7 @@ metadata:
   name: letsencrypt-issuer-test
 spec:
   acme:
+    #server: https://acme-staging-v02.api.letsencrypt.org/directory
     server: https://acme-v02.api.letsencrypt.org/directory
     email: letsencrypt-issuer-test@intix.info
     privateKeySecretRef:  
