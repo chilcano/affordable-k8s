@@ -37,11 +37,7 @@ Component                | Version | Observations
 ## Samples
 
 
-**1) Simple K8s Cluster (1 Master, 1 Worker)**
-
-...
-
-**2) K8s Cluster (1 Master, 1 Worker) with Ingress, TLS and Router 53 custom DNS**
+**1) K8s Cluster (1 Master, 1 Worker) with Ingress, TLS and Router 53 custom DNS**
 
 ```sh
 $ terraform init
